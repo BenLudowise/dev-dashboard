@@ -15,10 +15,25 @@
       padding: 30px;
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-      color: #ffffff;
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .chart-card {
+      background: #1e2130;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .chart-card h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-bottom: 16px;
     }
 
     .cards {
@@ -57,27 +72,6 @@
     .yellow { color: #ffb300; }
     .red { color: #f44336; }
 
-    .charts {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .chart-card {
-      background: #1e2130;
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .chart-card h2 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #888;
-      margin-bottom: 16px;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -114,7 +108,10 @@
 </head>
 <body>
 
-  <h1>⚡ Dev Dashboard</h1>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+    <h1 style="margin-bottom:0;">⚡ Dev Dashboard</h1>
+    <a href="/logout" style="color:#888; font-size:0.85rem; text-decoration:none;">Logout</a>
+  </div>
 
   <div class="cards">
     <div class="card">
@@ -232,7 +229,6 @@
       const res = await fetch('/api/stats');
       const data = await res.json();
 
-      // Update cards
       const cpu = document.getElementById('cpu');
       cpu.textContent = data.cpu_percent + '%';
       cpu.className = 'value ' + colorClass(data.cpu_percent);
@@ -249,7 +245,6 @@
       document.getElementById('disk-sub').textContent =
         formatGB(data.disk.used) + ' / ' + formatGB(data.disk.total);
 
-      // Update charts
       labels.push(now());
       cpuData.push(data.cpu_percent);
       ramData.push(data.ram.percent);
