@@ -51,3 +51,16 @@ dev-dashboard/
 ├── templates/
 │   └── index.html      # Frontend dashboard
 └── static/             # Static assets (future use)
+
+## Roadmap
+
+- [x] Flask REST API for system stats
+- [x] Live-updating frontend dashboard
+- [ ] Historical charts with Chart.js
+- [ ] Email/desktop alerts on high usage
+- [ ] Login/authentication
+- [ ] One-click deployment script
+
+## License
+
+MIT
