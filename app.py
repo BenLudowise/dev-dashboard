@@ -98,7 +98,8 @@ def get_processes():
     processes = []
     for proc in psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_percent']):
         try:
-            processes.append(proc.info)
+            if proc.info['name'] != 'System Idle Process':
+                processes.append(proc.info)
         except psutil.NoSuchProcess:
             pass
 
