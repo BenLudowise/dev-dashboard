@@ -29,3 +29,25 @@ Displays real-time CPU, RAM, and disk usage alongside a live process table — a
 ### Installation
 
 1. Clone the repo
+git clone https://github.com/BenLudowise/dev-dashboard.git
+cd dev-dashboard
+
+2. Create and activate a virtual environment
+python -m venv venv
+venv\Scripts\activate
+
+3. Install dependencies
+pip install -r requirements.txt
+
+4. Run the app
+python app.py
+
+5. Open your browser and go to `http://localhost:5000`
+
+## Project Structure
+dev-dashboard/
+├── app.py              # Flask backend & API routes
+├── requirements.txt    # Python dependencies
+├── templates/
+│   └── index.html      # Frontend dashboard
+└── static/             # Static assets (future use)
